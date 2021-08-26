@@ -1,10 +1,10 @@
 <template>
   <md-toolbar
-    id="toolbar"
-    md-elevation="0"
-    class="md-transparent md-absolute"
-    :class="extraNavClasses"
-    :color-on-scroll="colorOnScroll"
+      id="toolbar"
+      md-elevation="0"
+      class="md-transparent md-absolute"
+      :class="extraNavClasses"
+      :color-on-scroll="colorOnScroll"
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
@@ -12,9 +12,9 @@
       </div>
       <div class="md-toolbar-section-end">
         <md-button
-          class="md-just-icon md-simple md-toolbar-toggle"
-          :class="{ toggled: toggledClass }"
-          @click="toggleNavbarMobile()"
+            class="md-just-icon md-simple md-toolbar-toggle"
+            :class="{ toggled: toggledClass }"
+            @click="toggleNavbarMobile()"
         >
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -29,15 +29,15 @@
             <md-list>
               <li class="md-list-item" v-if="!showDownload">
                 <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
+                    href="javascript:void(0)"
+                    class="md-list-item-router md-list-item-container md-button-clean dropdown"
                 >
                   <div class="md-list-item-content">
                     <drop-down direction="down">
                       <md-button
-                        slot="title"
-                        class="md-button md-button-link md-white md-simple dropdown-toggle"
-                        data-toggle="dropdown"
+                          slot="title"
+                          class="md-button md-button-link md-white md-simple dropdown-toggle"
+                          data-toggle="dropdown"
                       >
                         <i class="material-icons">apps</i>
                         <p>Components</p>
@@ -51,7 +51,7 @@
                         </li>
                         <li>
                           <a
-                            href="https://demos.creative-tim.com/vue-material-kit/documentation/"
+                              href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                           >
                             <i class="material-icons">content_paste</i>
                             <p>Documentation</p>
@@ -63,6 +63,7 @@
                 </a>
               </li>
 
+              <!--맨 위로-->
               <md-list-item
                   href="/"
                   v-if="showDownload"
@@ -74,10 +75,11 @@
                 </md-tooltip>
               </md-list-item>
 
+              <!-- 포트폴리오 -->
               <md-list-item
-                href="https://github.com/solidcellaMoon/My-Portfolio/blob/main/files/gameDev.pdf"
-                target="_blank"
-                v-if="showDownload"
+                  href="https://github.com/solidcellaMoon/My-Portfolio/blob/main/files/gameDev.pdf"
+                  target="_blank"
+                  v-if="showDownload"
               >
                 <i class="material-icons">content_paste</i>
                 <p>Portfolio</p>
@@ -86,6 +88,7 @@
                 </md-tooltip>
               </md-list-item>
 
+              <!-- 수상 이력 -->
               <md-list-item
                   href="#awards"
                   v-if="showDownload"
@@ -97,6 +100,7 @@
                 </md-tooltip>
               </md-list-item>
 
+              <!-- 프로젝트 이력 -->
               <md-list-item
                   href="#project-list"
                   v-if="showDownload"
@@ -108,6 +112,7 @@
                 </md-tooltip>
               </md-list-item>
 
+              <!-- 대표 프로젝트 -->
               <md-list-item
                   href="#feature"
                   v-if="showDownload"
@@ -119,15 +124,17 @@
                 </md-tooltip>
               </md-list-item>
 
+              <!-- 깃헙 프로필 -->
               <md-list-item
                   href="https://github.com/solidcellaMoon"
                   target="_blank"
                   v-if="showDownload"
               >
                 <i class="fab fa-github"></i>
-                <p>github</p>
+                <p>gitHub</p>
                 <md-tooltip md-direction="bottom"
-                >GitHub 프로필</md-tooltip
+                >GitHub 프로필
+                </md-tooltip
                 >
               </md-list-item>
 
@@ -142,6 +149,7 @@
 
 <script>
 let resizeTimeout;
+
 function resizeThrottler(actualResizeHandler) {
   // ignore resize events as long as an actualResizeHandler execution is in the queue
   if (!resizeTimeout) {
@@ -155,6 +163,7 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
+
 export default {
   components: {
     MobileMenu
@@ -215,7 +224,7 @@ export default {
     },
     handleScroll() {
       let scrollValue =
-        document.body.scrollTop || document.documentElement.scrollTop;
+          document.body.scrollTop || document.documentElement.scrollTop;
       let navbarColor = document.getElementById("toolbar");
       this.currentScrollValue = scrollValue;
       if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
@@ -234,7 +243,7 @@ export default {
     scrollToElement() {
       let element_id = document.getElementById("downloadSection");
       if (element_id) {
-        element_id.scrollIntoView({ block: "end", behavior: "smooth" });
+        element_id.scrollIntoView({block: "end", behavior: "smooth"});
       }
     }
   },
@@ -246,3 +255,11 @@ export default {
   }
 };
 </script>
+
+<style>
+
+p{
+  text-transform: capitalize;
+}
+
+</style>

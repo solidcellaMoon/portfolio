@@ -204,6 +204,10 @@ details {
   margin: 5px;
 }
 
+details summary{
+  cursor: pointer;
+}
+
 details summary::before {
   content:"📘 ";
   /* you can style it however you want, use background-image for example */
