@@ -64,7 +64,7 @@
               </li>
 
               <md-list-item
-                  href="#title-md"
+                  href="/"
                   v-if="showDownload"
               >
                 <i class="material-icons">vertical_align_top</i>
@@ -87,17 +87,6 @@
               </md-list-item>
 
               <md-list-item
-                  href="#project-list"
-                  v-if="showDownload"
-              >
-                <i class="material-icons">sports_esports</i>
-                <p>projects</p>
-                <md-tooltip md-direction="bottom">
-                  프로젝트 이력
-                </md-tooltip>
-              </md-list-item>
-
-              <md-list-item
                   href="#awards"
                   v-if="showDownload"
               >
@@ -109,10 +98,21 @@
               </md-list-item>
 
               <md-list-item
+                  href="#project-list"
+                  v-if="showDownload"
+              >
+                <i class="material-icons">sports_esports</i>
+                <p>projects</p>
+                <md-tooltip md-direction="bottom">
+                  프로젝트 이력
+                </md-tooltip>
+              </md-list-item>
+
+              <md-list-item
                   href="#feature"
                   v-if="showDownload"
               >
-                <i class="material-icons">thumb_up_alt</i>
+                <i class="material-icons">stars</i>
                 <p>Featured Works</p>
                 <md-tooltip md-direction="bottom">
                   대표 프로젝트
