@@ -6,12 +6,12 @@
           <div class="image-wrapper">
             <div class="brand">
               <h1>.</h1>
+              {{cnt}}
             </div>
           </div>
         </div>
       </div>
     </parallax>
-
 
     <div class="main main-raised">
       <div class="section section-basic">
@@ -29,7 +29,7 @@
               <h3>🎓 Junior SW Engineer & Game Programmer</h3>
               <zero-md src="./md/aboutme.md"></zero-md>
 
-              <h3>📝Experience</h3>
+              <h3>📝 Experience</h3>
               <zero-md src="./md/experience.md"></zero-md>
 
               <h3>📚 Tech Stack</h3>
@@ -37,18 +37,36 @@
 
             </about-me>
 
-            <br>
-            <hr/>
+            <br><hr/>
+
+            <awards id="awards">
+              <h2>🏆Awards</h2>
+              클릭하여
+              <a href="#project-list" style="color: #3c4858"> 🕹️Proejcts </a>
+              에서 확인할 수 있습니다.
+<!--              <zero-md src="./md/awards.md"></zero-md>-->
+              <h3 />
+              <li v-on:click="openDetail(0)">
+                HackaLearn Korea -
+                <span style="font-weight: bold">가장 창의적인 애플리케이션 부문 수상</span>
+              </li>
+              <li v-on:click="openDetail(1)">
+                스마일게이트 챌린지 시즌2 -
+                <span style="font-weight: bold">우수팀 선정</span>
+              </li>
+              <li v-on:click="openDetail(2)">
+                이화여대 교내 게임잼 -
+                <span style="font-weight: bold">NCSOFT 우수상 수상</span>
+              </li>
+            </awards>
+
+            <br><hr/>
 
             <project-list id="project-list">
-              <!--            <div class="title">-->
-              <!--              <h2>🕹️Projects</h2>-->
-              <!--              클릭하여 상세 내역을 확인할 수 있습니다.-->
-              <!--            </div>-->
               <h2>🕹️Projects</h2>
               클릭하여 상세 내역을 확인할 수 있습니다.
               <h3>2021</h3>
-              <details id="1">
+              <details id="1" :open="prize[0] ? true : false">
                 <summary>[해커톤] 클라우드 서비스를 활용한 웹사이트</summary>
                 <div><br>
                   <zero-md src="./projects/202108-08.md"></zero-md>
@@ -62,13 +80,13 @@
               </details>
 
               <h3>2020</h3>
-              <details id="3">
+              <details id="3" :open="prize[1] ? true : false">
                 <summary>[게임] 2D 스토리텔링 게임</summary>
                 <div><br>
                   <zero-md src="./projects/202010-12.md"></zero-md>
                   <br></div>
               </details>
-              <details id="4">
+              <details id="4" :open="prize[2] ? true : false">
                 <summary>[해커톤] 2D 플랫포머 게임</summary>
                 <div><br>
                   <zero-md src="./projects/202011-11.md"></zero-md>
@@ -108,19 +126,10 @@
               </details>
             </project-list>
 
-            <br>
-            <hr/>
-
-            <awards id="awards">
-              <h2>🏆Awards</h2>
-              <zero-md src="./md/awards.md"></zero-md>
-            </awards>
-
-            <br>
-            <hr/>
+            <br><hr/>
 
             <feature id="feature">
-              <h2>👍 Featured Works</h2>
+              <h2>⭐Featured Works</h2>
               <zero-md src="./md/feature.md"></zero-md>
             </feature>
 
@@ -138,6 +147,12 @@
 export default {
   name: "index",
   bodyClass: "index-page",
+  data() {
+    return {
+      prize: new Array(),
+      cnt: 0,
+    }
+  },
   props: {
     image: {
       type: String,
@@ -151,13 +166,21 @@ export default {
       };
     }
   },
+  methods: {
+    openDetail(idx){
+      if(this.prize[idx]) this.prize[idx] = false
+      else this.prize[idx] = true
+      if(this.cnt == 0) this.cnt = 1
+      else this.cnt = 0
+    }
+  },
   mounted() {
     this.leafActive();
     window.addEventListener("resize", this.leafActive);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.leafActive);
-  }
+  },
 };
 </script>
 <style lang="scss">
@@ -166,8 +189,20 @@ export default {
 summary {list-style: none}
 summary::-webkit-details-marker {display: none; }
 
+li {
+  list-style: "🏅";
+  margin: 5px;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 details {
   margin: 5px;
+  cursor: pointer;
 }
 
 details summary::before {
@@ -182,7 +217,6 @@ details[open] summary::before {
 
 details[open] summary{
   font-weight: bold;
-  //font-size: 20px;
 }
 
 .section-download {
