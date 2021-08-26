@@ -202,7 +202,6 @@ a {
 
 details {
   margin: 5px;
-  cursor: pointer;
 }
 
 details summary::before {
