@@ -2,7 +2,7 @@
 
 개발 이력과 포트폴리오를 정리한 웹사이트입니다.
 
-- 링크: https://www.jhmoon.me/
+- 링크: <a href="https://www.jhmoon.me/" target="_blank">https://www.jhmoon.me/</a>
 - 프레임워크: `Vue.js`
 - 배포: `Azure`
 
