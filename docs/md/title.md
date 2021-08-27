@@ -1,2 +1,0 @@
-
-📃 [Portfolio](https://github.com/solidcellaMoon/My-Portfolio/blob/main/files/gameDev.pdf) | 📃 [Sample Code](https://github.com/solidcellaMoon/My-Portfolio/tree/main/code) | 🕹️[Projects](#project-list) | 🏆[Awards](#awards) | ⭐[Featured Works](#feature)
