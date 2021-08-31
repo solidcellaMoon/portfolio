@@ -4,7 +4,7 @@
 
 - 링크: https://www.jhmoon.me/
 - 프레임워크: `Vue.js`
-- 배포: `Azure`
+- 배포: `Azure`, `GitHub Actions CI/CD`
 
 
 
